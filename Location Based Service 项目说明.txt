@@ -1,0 +1,51 @@
+Location Based Service 项目说明：
+      1.基于位置的服务，围绕核心为先确定用户所在的位置。通常有两种实现方式，一种基于网络，一种基于GPS。网络定位相对于GPS定位略显粗略，无法
+      做到高精度的定位服务，它是基于几个基站或wifi联网的相对位置确定，但是优势是，可以在室内这种信号不是特别强的地方定位，可以在有网的情况下
+      实现实时定位。GPS定位基于手机内部硬件直接和卫星交互来获取当前的经纬信息，但是使用时，必须处在信号良好的地区使用。
+      2.我们使用百度开发者中的百度地图API，来实现自己程序中的定位，首先，你需要在百度申请成为一名百度开发者，并在其中申请一个项目，注意项目
+      选择类型为Android SDK，启用服务保持默认即可，其中注意，你的SHA1为你的指纹，完成后可获取相应的API Key。
+      3.下载相应的SDK，其中开发包内容根据你的实际情况进行选择。下载完成后，将.jar文件放入lib文件夹中，将so文件在main目录下创建一个文件夹存放。
+      ，并将整个project重新编译。
+      4.开始确定自己的经纬度，需要一个xml布局文件包括一个TextView用来存放我们得到的数据
+          xml.  
+                 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                       android:orientation="vertical"
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent">
+                      <TextView
+                            android:id="@+id/position_text_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                   </LinearLayout>
+                  用来存放获取的经纬度及其他信息。
+                 
+         AndroidManifest.xml:
+                <manifest xmlns:android="http://schemas.android/com/apk/res/android"
+                     package="com.example.lbstest">
+                    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>      //允许一个程序访问Cell ID或WiFi热点来获取
+                                                                                                                                                                    //粗略位置
+                    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>           //允许一个程序使用GPS获取精确位置
+                    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+                    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+                    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+                    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+                    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+                    <uses-permission android:name="android.permission.INTERNET"/>
+                    <uses-permission android:name="android.permission.MOUNT_UNMOUT_FILESYSTEM"/>
+                    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+                 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
