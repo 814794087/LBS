@@ -72,8 +72,13 @@ public class LBSMainActivity extends Activity {
         }
         if (ContextCompat.checkSelfPermission(LBSMainActivity.this, Manifest.
                 permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+            permissionList.add(Manifest.permission.READ_PHONE_STATE);
+        }
+        if (ContextCompat.checkSelfPermission(LBSMainActivity.this, Manifest.
+                permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             permissionList.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
         }
+
         if (!permissionList.isEmpty()) {
             String[] permissions = permissionList.toArray(new String[permissionList.size()]);
             ActivityCompat.requestPermissions(LBSMainActivity.this, permissions, 1);

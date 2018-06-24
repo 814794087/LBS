@@ -35,9 +35,9 @@
         </activity>
 
         <service
-            android:name="com.baidu.location.f"
-            android:enabled="false"
-            android:process=":remote" />
+        android:name="com.baidu.location.f"
+        android:enabled="false"
+        android:process=":remote" />
 
     </application>
 
